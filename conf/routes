@@ -1,0 +1,21 @@
+# Routes
+
+GET     /                controllers.General.index
+
+GET     /comments        controllers.Comments.query(sort: String ?= "", filter: String ?= "", prefix: String ?= "", offset: Int ?= 0, limit: Int ?= -1)
+
+GET     /comments/:id    controllers.Comments.select(id: Long, prefix: String ?= "")
+POST    /comments        controllers.Comments.insert
+PUT     /comments/:id    controllers.Comments.update(id: Long)
+DELETE  /comments/:id    controllers.Comments.delete(id: Long)
+
+GET     /*otherPath      controllers.General.notFound(otherPath: String)
+POST    /*otherPath      controllers.General.notFound(otherPath: String)
+PUT     /*otherPath      controllers.General.notFound(otherPath: String)
+DELETE  /*otherPath      controllers.General.notFound(otherPath: String)
+
+POST    /                controllers.General.methodNotAllowed()
+PUT     /                controllers.General.methodNotAllowed()
+DELETE  /                controllers.General.methodNotAllowed()
+
+#+ nocsrf
